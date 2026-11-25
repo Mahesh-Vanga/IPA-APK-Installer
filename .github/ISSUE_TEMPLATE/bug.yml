@@ -1,0 +1,24 @@
+name: Bug report
+description: Report reproducible non-security issues without sharing private files.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: Do not attach build files, credentials, device identifiers, or unredacted logs. For security issues, see SECURITY.md.
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Installer version, macOS version, Mac architecture, and iOS or Android version.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Expected and actual result

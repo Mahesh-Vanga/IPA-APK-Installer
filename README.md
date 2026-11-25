@@ -1,27 +1,34 @@
-# IPA & APK Installer for macOS
+# IPA & APK Installer
 
-Install your own signed iPhone, iPad, and Android builds from Finder. Drag an IPA or APK onto the menu bar icon or into the installer, select a compatible device, and click **Install on Device**.
+Install your own signed iPhone, iPad, or Android builds from a native macOS menu bar app. Drag a single IPA or APK onto the icon or into the app, select a compatible device, and click **Install on Device**. Dropping a file does not install it.
 
-## Download
+## Install
 
-[Get the latest release](https://github.com/Mahesh-Vanga/IPA-APK-Installer/releases/latest)
+- Open the repository’s [Releases](../../releases) page. Read the notes for the version you want.
+- For a signed DMG, open it and copy the app to Applications. For a signed PKG, use the macOS Installer. Choose one format, not both.
+- macOS 14 or later is required. Universal packages support Apple silicon and Intel.
+- To replace a development build, quit it completely from the menu bar before installing.
 
-- **DMG** — open the disk image and drag the app into Applications.
-- **PKG** — open the package and follow the macOS Installer prompts.
+## Device setup
 
-The same universal app supports Apple silicon and Intel Macs running macOS 14 or later. If you're replacing a development build, fully quit it from the menu bar before installing. Use either installer, not both.
+| Platform | You need |
+| --- | --- |
+| iPhone or iPad | Full Xcode selected for command-line tools, paired device, and a device-compatible IPA signed and provisioned for that device. Enable Developer Mode when required. |
+| Android | [Google Android SDK Platform-Tools](https://developer.android.com/tools/releases/platform-tools), USB debugging or an existing ADB connection, and a signed standalone APK. |
 
-## Device requirements
+Refresh devices if your target is not listed. The app does not sign builds, bypass device security, uninstall existing apps, or install app bundles or split APK sets.
 
-- **iPhone or iPad** — install and select full Xcode with device support, pair and unlock your device, and enable Developer Mode where required. Use a valid IPA signed and provisioned for that device.
-- **Android** — install [Google Android SDK Platform-Tools](https://developer.android.com/tools/releases/platform-tools), enable USB debugging, and authorize the Mac on the device. Use a signed, standalone APK.
+## Menu bar
 
-The installer doesn't re-sign builds, uninstall apps, or bypass platform security. Device and signing requirements are still enforced by Apple and Android.
+Hover or click the icon to show the drop panel. Drag its title to detach it into the main window. Command-Q closes the app windows but leaves the drop target running. Use the status icon’s double-tap or secondary-click menu to quit completely. Settings controls launch at login, panel close delay, Diagnostics, and update checks.
 
-## Menu bar and privacy
+When the app is idle with all windows closed, it can hand the status icon to a fresh instance to release UI memory. The app preserves the current selection and log locally during that transfer.
 
-Hover over the icon to open the drop panel. Press Command-Q to keep the installer in the menu bar, or use the icon's double-tap or secondary-click menu to quit completely. Change the panel's close delay and enable optional launch at login in Settings.
+## Privacy and development
 
-Device installation runs locally. Your builds and diagnostics aren't uploaded. Settings → Updates contacts this GitHub repository only when you choose **Check for Updates**. Canceling a check does not affect local installation.
-
-Report reproducible problems in [Issues](https://github.com/Mahesh-Vanga/IPA-APK-Installer/issues). Include the macOS version, installer version, and device platform. Remove private file paths, device identifiers, and other sensitive details from any logs before posting.
+- [Privacy](docs/PRIVACY.md)
+- [Building and releasing](docs/BUILD.md)
+- [Contributing](CONTRIBUTING.md)
+- [Reporting security issues](SECURITY.md)
+- [Changelog](CHANGELOG.md)
+- [MIT license](LICENSE)
