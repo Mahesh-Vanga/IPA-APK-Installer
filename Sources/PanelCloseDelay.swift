@@ -28,6 +28,8 @@ struct PanelCloseCountdown {
     var delay: Double = 0
     private var exitedAt: Double?
 
+    init(delay: Double = 0) { self.delay = delay }
+
     mutating func reset() { exitedAt = nil }
 
     mutating func shouldClose(pointerInside: Bool, now: Double) -> Bool {
